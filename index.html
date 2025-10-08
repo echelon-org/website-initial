@@ -57,9 +57,7 @@
       width: auto;
     }
 
-    .prose p {
-      margin: 0 0 1.25em 0;
-    }
+    .prose p { margin: 0 0 1.25em 0; }
 
     .lead {
       font-size: clamp(28px, 4vw, 40px);
@@ -78,6 +76,19 @@
       opacity: 0.25;
     }
 
+    /* Signatures align to divider because they're inside .prose now */
+    .signatures {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: clamp(14px, 1.6vw, 16px);
+      margin-top: 1.25rem;
+    }
+    .sig { display: grid; gap: 0.25rem; }
+    .sig small { opacity: 0.8; }
+    .sig--right { text-align: right; }
+
     .cta {
       text-align: center;
       padding: 2rem clamp(16px, 4vw, 40px) clamp(40px, 6vw, 80px);
@@ -95,37 +106,16 @@
       font-size: clamp(16px, 2vw, 18px);
       transition: transform 140ms ease, background 140ms ease, color 140ms ease;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      background: var(--ink);
-      color: var(--bg);
-    }
+    .btn:hover { transform: translateY(-1px); background: var(--ink); color: var(--bg); }
 
     footer {
       padding: 0 clamp(16px, 4vw, 40px) clamp(16px, 4vw, 40px);
       color: var(--ink);
     }
 
-    .signatures {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      align-items: start;
-      font-size: clamp(14px, 1.6vw, 16px);
-    }
-
-    .sig { display: grid; gap: 0.25rem; }
-    .sig small { opacity: 0.8; }
-
-    .sig--left { justify-self: start; }
-    .sig--right { justify-self: end; text-align: right; }
-
     @media (max-width: 700px) {
-      .signatures { grid-template-columns: 1fr; }
-      .sig--right { justify-self: start; text-align: left; }
+      .signatures { flex-direction: column; gap: 1.5rem; }
+      .sig--right { text-align: left; }
     }
   </style>
 </head>
@@ -139,9 +129,7 @@
 
         <p class="lead">In a world obsessed with scale, we choose intimacy.</p>
 
-        <p>Because intimacy, the kind that makes a customer feel seen, remembered, and valued, is the real currency of loyalty. It’s what keeps people walking past ten other coffee shops to get to yours. It’s why they tell their friends, why they stay loyal even when a chain moves in next door.</p>
-
-        <p>But that intimacy is disappearing.</p>
+        <p>Because intimacy, the kind that makes a customer feel seen, remembered, and valued, is the real currency of loyalty. It’s what keeps people walking past ten other coffee shops to get to yours. It’s why they tell their friends, why they stay loyal even when a chain moves in next door. But that intimacy is disappearing.</p>
 
         <p>The world has traded connection for convenience; Names are misspelled, orders are shouted, and customers forgotten as quickly as they came.</p>
 
@@ -155,27 +143,28 @@
 
         <p>We understand what this means to you. You open before sunrise, prepping for the morning rush. You stay long after close, counting receipts and wondering how to keep them coming back. You’ve given everything to this dream, and you’re still fighting to win their loyalty.</p>
 
-        <p>We are is your unfair advantage. Your sunlight in a crowded forest. Your way to grow without losing what makes you, you.</p>
+        <p>We are your unfair advantage. Your sunlight in a crowded forest. Your way to grow without losing what makes you, you.</p>
 
         <p><strong>Be bold. Be Bloom.</strong></p>
 
         <div class="divider" aria-hidden="true"></div>
+
+        <div class="signatures" aria-label="Founders">
+          <div class="sig sig--left">
+            <div>Palash Awasthi</div>
+            <small>Co-Founder & CTO</small>
+            <small><a href="mailto:awasthi.p@northeastern.edu" style="color:inherit; text-decoration:none; border-bottom:1px solid currentColor;">awasthi.p@northeastern.edu</a></small>
+          </div>
+          <div class="sig sig--right">
+            <div>Mohammed Saad Abdullah</div>
+            <small>Co-Founder & CEO</small>
+            <small><a href="mailto:abdullah.mo@northeastern.edu" style="color:inherit; text-decoration:none; border-bottom:1px solid currentColor;">abdullah.mo@northeastern.edu</a></small>
+          </div>
+        </div>
       </article>
     </main>
 
     <footer>
-      <div class="signatures" aria-label="Founders">
-        <div class="sig sig--left">
-            <div class="sig sig--left">
-              <div>Palash Awasthi</div>
-             <small>CTO</small>
-             <small><a href="mailto:awasthi.p@northeastern.edu" style="color:inherit; text-decoration: none; border-bottom: 1px solid currentColor;">awasthi.p@northeastern.edu</a></small>
-        </div>
-<       div class="sig sig--right">
-             <div>Mohammed Saad Abdullah</div>
-             <small>CEO</small>
-             <small><a href="mailto:abdullah.mo@northeastern.edu" style="color:inherit; text-decoration: none; border-bottom: 1px solid currentColor;">abdullah.mo@northeastern.edu</a></small>
-        </div>
       <div class="cta" role="region" aria-label="Join the waitlist">
         <a class="btn" href="https://forms.gle/fHoczuUytbnY3HPX8" target="_blank" rel="noopener">Join the waitlist</a>
       </div>
